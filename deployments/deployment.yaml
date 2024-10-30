@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netlify-ddns-script
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netlify-ddns-script
+  template:
+    metadata:
+      labels:
+        app: netlify-ddns-script
+    spec:
+      containers:
+      - name: netlify-ddns-script
+        image: flite999/netlify-ddns-script:latest
+        imagePullPolicy: Always
